@@ -1,0 +1,41 @@
+---
+
+# ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ:
+GLOBAL:
+  api_version: "2"
+  
+  # Сервер, на который будет осуществлена установка окружения
+  #   Доступные, протестированные переменные:
+  #     Meropa
+  #     Asterope
+  cloud_server: "Meropa"
+
+  # Домен который будем использовать для кластера
+  domain_suffix: ".chelnik.local"
+  
+  # PHP:
+  #   Доступные, протестированные переменные:
+  #   8.2
+  php_version: 8.2 
+  
+  # MySQL:
+  #   Доступные, протестированные переменные:
+  #   mysql8, mariadb103, mariadb104, mariadb105, mariadb106
+  mysql_version: mysql8  
+  
+  # VAGRANT PROVIDER:
+  #   Доступные переменные:
+  #     Docker              - docker
+  #     Hyper-V             - hyperv
+  #     VirtualBox          - virtualbox
+  #     VMWare Fusion       - vmware_fusion
+  #     VMWare Workstation  - vmware_workstation
+  #   Протестированные переменные:
+  #     VirtualBox          - virtualbox         
+  vagrant_provider: virtualbox
+  
+  # ЕДИНЫЙ ОБРАЗ СИСТЕМЫ ДЛЯ ВСЕХ ВИРТУАЛЬНЫХ МАШИН: 
+  box: "bento/ubuntu-22.04"
+  box_version: "202303.13.0"
+  
+...

@@ -1,7 +1,5 @@
 #  файлы проекта:
-## people/nodes/config/ ..
-## process/nodes/config/ ..
-## technology/nodes/config/ ..
+/data-sync/*
 
 #  файлы, сгенерированные во время выполнения:
 *.log
@@ -69,3 +67,4 @@ VagrantBoxes/
 *.code-workspace
 ##  Local History for Visual Studio Code
 .history/
+/data-sync/almalinux-kernel-update-auto

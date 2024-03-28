@@ -1,0 +1,92 @@
+---
+
+# ОБЯЗАТЕЛЬНЫЕ ПЕРЕМЕННЫЕ ДЛЯ КАЖДОЙ ИЗ ВИРТУАЛЬНЫХ МАШИН:
+#   setup                 - доступные переменные: true, false
+#   name                  - name (имя виртуальной машины)
+#   box_check_update      - проверка репозитория на наличие обновлений
+#   keys_only: false      - можно подключаться по паролю
+#   insert_key: false     - отменить создание ssh-ключа
+#   ip_private            -
+#   ip_public             -
+#   ip_bridge             -
+#   apache_document_root  - 
+
+# ДИНАМИЧЕСКИЕ ПОРТЫ:
+#   Диапазон 49152—65535 содержит динамически выделяемые или частные порты, которые не регистрируются IANA.
+#   Эти порты используются временными (короткоживущими) соединениями «клиент — сервер» или в определенных частных случаях.
+#     port_guest                - 
+#     port_host                 - 50101 - 50999
+#     port_ssh                  - 51101 - 51999
+#     port_web_based_interface  - 52101 - 52999
+
+# ДОПОЛНИТЕЛЬНЫЕ ПЕРЕМЕННЫЕ:
+#   document_root         -
+#   memory                - объем оперативной памяти, по умолчанию, если не указано, выделяется 1024Mb
+#   cpu                   - количество ядер процессора, по умолчанию, если не указано, выделяется одно
+#   mysql_dbname          - основная база данных сервера разработки приложений
+#   
+#   по умолчанию устанавливается образ системы, определённый в глобальных переменных
+#   если необходима специфичность, определите для виртуальной машины следующие переменные:
+#     box                   - образ системы
+#     box_version           -
+
+
+
+nodes:
+-
+    #
+    description: "AlmaLinux ELRepo kernel update"
+    #   обязательные переменные:
+    name: "almalinux-kernel-update-elrepo"
+    setup: true
+    domain_prefix: "test.meropa"
+    box: "almalinux/8"
+    box_version: "8.9.20231219"
+    box_check_update: false
+    keys_only: false
+    insert_key: false
+    port_guest: 80
+    port_host: 50101
+    port_ssh: 51101
+    sync_folder: true
+    memory: 4096
+    disksize: 50GB
+-
+    #
+    description: "Ubuntu kernel update"
+    #   обязательные переменные:
+    name: "ubuntu-kernel-update"
+    setup: true
+    domain_prefix: "test.meropa"
+    box: "ubuntu/jammy64"
+    box_version: "20240207.0.0"
+    box_check_update: false
+    keys_only: false
+    insert_key: false
+    port_guest: 80
+    port_host: 50102
+    port_ssh: 51102
+    sync_folder: true
+    memory: 4096
+    disksize: 200GB
+    cpu: 2
+-
+    #
+    description: "CentOS 7 kernel update"
+    #   обязательные переменные:
+    name: "centos-kernel-update"
+    setup: true
+    domain_prefix: "test.meropa"
+    box: "centos/7"
+    box_version: "1905.1"
+    box_check_update: false
+    keys_only: false
+    insert_key: false
+    port_guest: 80
+    port_host: 50103
+    port_ssh: 51103
+    sync_folder: false
+    memory: 1024
+    disksize: 100GB
+    cpu: 2
+...
